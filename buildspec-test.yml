@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
+      - sudo yum install -y httpd php php-mysqlnd
+  build:
+    commands:
+      - echo "Running WordPress tests"
+      - php -l index.php  # PHP syntax check
+      - curl -Is http://localhost | head -1  # Check if WordPress loads
